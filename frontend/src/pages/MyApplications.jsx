@@ -21,7 +21,7 @@ function MyApplications() {
   }, []);
 
   const fetchMyApplications = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/applications/${email}`);
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/applications/${email}`);
     setApplications(res.data);
   };
 

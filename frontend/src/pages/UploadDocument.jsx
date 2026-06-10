@@ -30,7 +30,7 @@ function UploadDocument() {
 
     try {
       const res = await axios.post(
-        "http://127.0.0.1:8000/upload-document",
+        `${import.meta.env.VITE_API_URL}/upload-document`,
         formData,
         {
           headers: {

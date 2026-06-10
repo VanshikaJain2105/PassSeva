@@ -25,7 +25,7 @@ function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/admin/stats");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/admin/stats`);
       setStats(res.data);
     } catch (err) {
       alert("Failed to fetch admin stats");

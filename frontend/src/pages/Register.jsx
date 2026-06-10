@@ -19,7 +19,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/register", form);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/register`, form)
       alert(res.data.message);
     } catch (err) {
       alert(err.response?.data?.detail || "Registration failed");

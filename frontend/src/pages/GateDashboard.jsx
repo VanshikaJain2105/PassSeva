@@ -23,7 +23,7 @@ function GateDashboard() {
 
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/verify-qr/${token}`
+        `${import.meta.env.VITE_API_URL}/verify-qr/${token}`
       );
 
       setResult(res.data);

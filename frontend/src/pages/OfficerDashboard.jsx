@@ -29,7 +29,7 @@ function OfficerDashboard() {
   }, []);
 
   const fetchApplications = async () => {
-    const res = await axios.get("http://127.0.0.1:8000/officer/applications");
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/officer/applications`);
     setApplications(res.data);
   };
 
