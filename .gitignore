@@ -1,0 +1,22 @@
+# Python
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+
+# Environment variables
+backend/.env
+frontend/.env
+
+# Uploads and generated files
+backend/uploads/
+backend/qr_codes/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
