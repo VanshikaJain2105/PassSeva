@@ -46,7 +46,7 @@ function OfficerDashboard() {
 
   const viewFlags = async (applicationId) => {
     const res = await axios.get(
-      `http://127.0.0.1:8000/application/${applicationId}/flags`
+      `${import.meta.env.VITE_API_URL}/application/${applicationId}/flags`
     );
 
     setFlags(res.data);
@@ -58,7 +58,7 @@ function OfficerDashboard() {
 
   const viewDocuments = async (applicationId) => {
     const res = await axios.get(
-      `http://127.0.0.1:8000/application/${applicationId}/documents`
+      `${import.meta.env.VITE_API_URL}/application/${applicationId}/documents`
     );
 
     setDocuments(res.data);
@@ -71,7 +71,7 @@ function OfficerDashboard() {
   const runOCR = async (documentId) => {
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/extract-ocr/${documentId}`
+        `${import.meta.env.VITE_API_URL}/extract-ocr/${documentId}`
       );
 
       setOcrText(res.data.extracted_text);
@@ -85,7 +85,7 @@ function OfficerDashboard() {
   const runVerification = async (applicationId) => {
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/verify-application/${applicationId}`
+        `${import.meta.env.VITE_API_URL}/verify-application/${applicationId}`
       );
 
       setVerificationResult(res.data);
@@ -105,7 +105,7 @@ function OfficerDashboard() {
     }
 
     await axios.post(
-      `http://127.0.0.1:8000/application/${applicationId}/approve`,
+      `${import.meta.env.VITE_API_URL}/application/${applicationId}/approve`,
       {
         officer_email: officerEmail,
         remarks: remarks,
@@ -123,13 +123,13 @@ function OfficerDashboard() {
       return;
     }
 
-    await axios.post(
-      `http://127.0.0.1:8000/application/${applicationId}/reject`,
-      {
-        officer_email: officerEmail,
-        remarks: remarks,
-      }
-    );
+     await axios.post(
+    `${import.meta.env.VITE_API_URL}/application/${applicationId}/reject`,
+    {
+      officer_email: officerEmail,
+      remarks: remarks,
+    }
+  );
 
     alert("Application rejected");
     setRemarks("");

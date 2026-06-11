@@ -39,7 +39,7 @@ function MyApplications() {
   const generateQR = async (applicationId) => {
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/generate-qr/${applicationId}`
+        `${import.meta.env.VITE_API_URL}/generate-qr/${applicationId}`
       );
 
       setQrData({
@@ -57,7 +57,7 @@ function MyApplications() {
   const fetchQueueDetails = async (applicationId) => {
     try {
       const res = await axios.get(
-        `http://127.0.0.1:8000/application/${applicationId}/queue`
+        `${import.meta.env.VITE_API_URL}/application/${applicationId}/queue`
       );
 
       setQueueData({
@@ -174,7 +174,7 @@ function MyApplications() {
                   </p>
 
                   <img
-                    src={`http://127.0.0.1:8000/${qrData[app._id].qr_path}`}
+                    src={`${import.meta.env.VITE_API_URL}/${qrData[app._id].qr_path}`}
                     alt="QR Code"
                     style={{
                       width: "180px",
