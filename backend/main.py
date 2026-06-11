@@ -47,7 +47,6 @@ app.mount(
     name="qr_codes"
 )
 
-reader = easyocr.Reader(["en"])
 
 
 def extract_dob(text):
@@ -260,6 +259,7 @@ def extract_ocr(document_id: str):
             detail="OCR currently supports images only"
         )
 
+    reader = easyocr.Reader(["en"], gpu=False)
     results = reader.readtext(file_path)
 
     extracted_text = ""
