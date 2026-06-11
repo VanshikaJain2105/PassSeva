@@ -263,12 +263,14 @@ def extract_ocr(document_id: str):
     if USE_SIMULATED_OCR:
         extracted_text = "Vanshika Jain DOB 20-10-2005 Aadhaar Address India"
     else:
+        import easyocr
+        
         reader = easyocr.Reader(["en"], gpu=False)
         results = reader.readtext(file_path)
-
-    extracted_text = ""
-    for result in results:
-        extracted_text += result[1] + " "
+        
+        extracted_text = ""
+        for result in results:
+            extracted_text += result[1] + " "
 
     ocr_data = {
         "document_id": document_id,
